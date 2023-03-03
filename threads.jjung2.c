@@ -64,7 +64,14 @@ int readFile(char *filename, int *numChars, char *buffer) {
     }
     fclose(fp);
 }
+
 void *findMaxSumSeq(void *param) {
+    ThreadInfo *data;
+    int maxSum;
+
+    data = (ThreadInfo *)param;
+    maxSum = 
+
 
 }
 int main (int argc, char *argv[]) {
@@ -89,13 +96,14 @@ int main (int argc, char *argv[]) {
     int pos = 0;
 
     for (int i = 0; i < NUM_THREADS; ++i) {
+        strcpy(tdata[i].A, buffer);  
         tdata[i].start = pos;
         tdata[i].end = tdata[i].start + chunkSize;
         pos = pos + chunkSize + 1;
     }
     // create child threads
     for (int i = 0; i < NUM_THREADS; ++i) {
-        pthread_create(&tids[i], NULL, findMaxSumSeq, &tdata[i]);
+        pthread_create(&[i], NULL, findMaxSumSeq, &tdata[i]);
     }
 
 
