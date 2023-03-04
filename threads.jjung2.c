@@ -66,11 +66,54 @@ int readFile(char *filename, int *numChars, char *buffer) {
 }
 
 void *findMaxSumSeq(void *param) {
+
     ThreadInfo *data;
-    int maxSum;
+
+    int currLen;        // lengh of the sequece
+    int seqSum;         // sequence sum so far
+    int startInd;       // starting index
+    int endInd;         // ending index
 
     data = (ThreadInfo *)param;
-    maxSum = 
+
+    if (data->start == 0) {
+        startInd = 0;
+        endInd = data->end + 10;
+    }
+    else if (strlen(data->A) - 1 == data->end) {
+        startInd = data->start - 10;
+        endInd = data->end;
+
+    }
+    else {
+        startInd = data->start - 10;
+        endInd = data->end + 10;
+    }
+
+    for (int i = startInd + 1; i < endInd; i ++) {
+        
+        currLen = 0;
+        seqSum = 0;
+
+        while(i - currLen >= startInd) {
+
+        }
+
+        for (int j = i - 1; j >= i - currLen; j --) {
+            if ()
+        }
+
+
+        // when sequence sum equals to the next number
+        if ((int)(data->A[i]) == seqSum) {
+            data->bestpos = i;
+
+        }
+        else {
+            
+        }
+    }
+
 
 
 }
